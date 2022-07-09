@@ -2,23 +2,27 @@ import './cart-dropdown.styles.scss'
 import Button from '../button/button.component'
 import { useContext } from 'react'
 import { CartContext } from '../../context/cart.context'
-
+import { useNavigate } from 'react-router-dom'
+ 
+import CartItem from '../cart-item/cart-item.component'
 const CartDropdown = () => {
-  const { cart } = useContext(CartContext);
+  const { cartItems } = useContext(CartContext);
+  const navigate = useNavigate();
+
+  const goToCheckout = () => {
+    navigate('/checkout')
+  }
+
   return (
     <div className='cart-dropdown-container'>
       <div className='cart-items'>
-        {cart?.map((item) => {
+        {cartItems.map((item) => {
           return(
-            <div key={item.id}>
-              <span>
-                {item.name}
-              </span>  
-            </div>  
+            <CartItem key={item.id} cartItem={item}/>
           )
         })}
       </div>
-      <Button>GO TO CHECKOUT</Button>
+      <Button onClick={goToCheckout}>GO TO CHECKOUT</Button>
     </div>
   )
 }
