@@ -6,7 +6,7 @@ const Checkout = () => {
   const { cartItems } = useContext(CartContext);
   
   const total = cartItems.reduce((total, item) => {
-    return total + item.quantity*item.price
+    return total + item.quantity * item.price;
   }, 0)
 
   return (
@@ -33,7 +33,7 @@ const Checkout = () => {
           <CheckoutItem key={cartItem.id} cartItem={cartItem}/>
         );
       })}
-      <span className='total'>Total: {total}$</span>
+      <span className='total'>Total: ${total}</span>
     </div>
   )
 }
