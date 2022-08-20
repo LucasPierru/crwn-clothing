@@ -34,7 +34,6 @@ const categories = [
   }
 ]
 const Directory = () => {
-  
   return(
     <DirectoryContainer>
       {categories.map(category => {
