@@ -10,9 +10,9 @@ import {
   RemoveButton 
 } from './checkout-item.styles.jsx'
 
-import { addItemToCart, removeItemFromCart, deleteItemFromCart } from '../../store/cart/cart.action.js';
+import { addItemToCart, removeItemFromCart, deleteItemFromCart } from '../../store/cart/cart.action';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCartItems } from '../../store/cart/cart.selector.js';
+import { selectCartItems } from '../../store/cart/cart.selector';
 
 const CheckoutItem = ({cartItem}) => {
   const dispatch = useDispatch();
